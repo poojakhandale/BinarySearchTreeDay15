@@ -65,6 +65,40 @@ namespace BinarySearchTree
                 Console.Write(node.data + " ");
                 InorderTraversal(node.right);
             }
+       
+        }
+        public int Size(Node node)
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Size(node.left) + 1 + Size(node.right);
+            }
+        }
+        public Node Search(int data)
+        {
+            return Search(root, data);
+        }
+
+        private Node Search(Node node, int data)
+        {
+            if (node == null || node.data == data)
+            {
+                return node;
+            }
+            else if (data < node.data)
+            {
+                return Search(node.left, data);
+            }
+            else
+            {
+                return Search(node.right, data);
+            }
         }
     }
 }
+    
+
